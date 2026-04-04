@@ -1,5 +1,257 @@
-<h1>Woodheadgames Studio</h1>
-<p>Registered South African Company</p>
-<p>Registration Number: 2016/509041/07</p>
-<p>Contact Email: woodheadgamestudio@gmail.com</p>
-<p>© 2016 MyCompany Pty Ltd</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Woodhead Games Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0f0e0c;
+      --surface:   #1a1814;
+      --border:    #2e2b24;
+      --gold:      #c9a84c;
+      --gold-dim:  #8a6f30;
+      --text:      #e8e2d6;
+      --muted:     #8a8070;
+      --accent:    #d4a843;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 80px 32px 100px;
+      text-align: center;
+    }
+
+    /* Logo mark */
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 32px;
+      border: 1px solid var(--gold-dim);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .logo-mark span {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+
+    .tagline {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 48px;
+      animation: fadeUp 0.5s 0.15s ease both;
+    }
+
+    .divider {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      margin: 0 auto 48px;
+      animation: fadeUp 0.5s 0.2s ease both;
+    }
+
+    /* Info card */
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 36px 40px;
+      margin-bottom: 48px;
+      text-align: left;
+      animation: fadeUp 0.5s 0.25s ease both;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      white-space: nowrap;
+    }
+
+    .info-value {
+      font-size: 14px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .info-value a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-dim);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .info-value a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Privacy section */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      animation: fadeUp 0.5s 0.3s ease both;
+    }
+
+    .policy-list {
+      list-style: none;
+      animation: fadeUp 0.5s 0.35s ease both;
+    }
+
+    .policy-list li {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold-dim);
+      margin-bottom: 8px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .policy-list li:hover {
+      background: var(--surface);
+      border-left-color: var(--gold);
+    }
+
+    .policy-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .policy-list a:hover {
+      color: var(--text);
+    }
+
+    .policy-list a::after {
+      content: '→';
+      color: var(--gold-dim);
+      font-size: 16px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 64px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      animation: fadeUp 0.5s 0.4s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .page { padding: 60px 20px 80px; }
+      .info-card { padding: 24px 20px; }
+      .info-row { flex-direction: column; gap: 4px; }
+      .info-value { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="logo-mark"><span>W</span></div>
+
+    <h1>Woodhead Games Studio</h1>
+    <p class="tagline">Independent Game Developer</p>
+
+    <div class="divider"></div>
+
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Status</span>
+        <span class="info-value">Registered South African Company</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Reg. Number</span>
+        <span class="info-value">2016/509041/07</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Contact</span>
+        <span class="info-value"><a href="mailto:woodheadgamestudio@gmail.com">woodheadgamestudio@gmail.com</a></span>
+      </div>
+    </div>
+
+    <p class="section-label">Privacy Policies</p>
+    <ul class="policy-list">
+      <li><a href="Auto_Empire_Idle_Dealer_privacy-policy.html">Auto Empire: Idle Dealer</a></li>
+    </ul>
+
+    <div class="footer">© 2016 Woodhead Games Studio Pty Ltd</div>
+
+  </div>
+</body>
+</html>
