@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Idle Courier Manager RPG</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0f0e0c;
+      --surface:   #1a1814;
+      --border:    #2e2b24;
+      --gold:      #c9a84c;
+      --gold-dim:  #8a6f30;
+      --text:      #e8e2d6;
+      --muted:     #8a8070;
+      --accent:    #d4a843;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* Subtle noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 64px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .studio-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      padding: 6px 14px;
+      border: 1px solid var(--gold-dim);
+      border-radius: 2px;
+    }
+
+    .studio-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .updated {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold-dim), transparent);
+      margin: 48px 0;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    /* Intro paragraph */
+    .intro {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 56px;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .intro strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Sections */
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .section {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-number {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .section p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .section a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-dim);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .section a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Contact block */
+    .contact-block {
+      margin-top: 16px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold-dim);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .contact-block a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      animation: fadeUp 0.5s 0.5s ease both;
+    }
+
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 15px;
+      color: var(--gold-dim);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.15s; }
+    .section:nth-child(3) { animation-delay: 0.2s; }
+    .section:nth-child(4) { animation-delay: 0.25s; }
+    .section:nth-child(5) { animation-delay: 0.3s; }
+    .section:nth-child(6) { animation-delay: 0.35s; }
+
+    @media (max-width: 480px) {
+      .page { padding: 48px 20px 80px; }
+      .footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="header">
+      <div class="studio-badge">Woodhead Games Studio</div>
+      <h1>Privacy Policy —<br><em>Idle Courier Manager RPG</em></h1>
+      <p class="updated">Last updated: April 2026</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="intro">
+      <strong>Woodhead Games Studio</strong> ("we", "us") operates Idle Courier Manager RPG (the "App").
+      This policy explains how we handle information when you use our App.
+    </p>
+
+    <div class="sections">
+
+      <div class="section">
+        <div class="section-number">01</div>
+        <h2>Information We Collect</h2>
+        <p>We do not directly collect or store any personal information. The App may use third-party services (such as Google AdMob) that collect data as described in their own privacy policies.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">02</div>
+        <h2>Advertising</h2>
+        <p>The App uses Google AdMob to display advertisements. AdMob may collect device identifiers and usage data to serve personalized or non-personalized ads. You can review Google's privacy policy at: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">03</div>
+        <h2>Data Retention</h2>
+        <p>We do not retain personal data. Any data collected by third-party SDKs is governed by their respective policies.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">04</div>
+        <h2>Children's Privacy</h2>
+        <p>The App is not directed at children under 13. We do not knowingly collect data from children.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">05</div>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this policy. Changes will be reflected by the updated date above.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">06</div>
+        <h2>Contact</h2>
+        <p>Questions about this privacy policy?</p>
+        <div class="contact-block">
+          Email us at: <a href="/cdn-cgi/l/email-protection#73041c1c171b16121714121e16000706171a1c33141e121a1f5d101c1e"><span class="__cf_email__" data-cfemail="6f1800000b070a0e0b080e020a1c1b1a0b06002f08020e0603410c0002">[email&#160;protected]</span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <span class="footer-brand">Woodhead Games Studi
