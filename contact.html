@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Woodhead Games Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0e0c; --surface: #1a1814; --border: #2e2b24;
+      --gold: #c9a84c; --gold-dim: #8a6f30; --text: #e8e2d6;
+      --muted: #8a8070; --accent: #d4a843;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-weight: 300;
+      line-height: 1.75; min-height: 100vh; display: flex; flex-direction: column;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.4;
+    }
+    nav {
+      position: relative; z-index: 10; display: flex; align-items: center;
+      justify-content: space-between; padding: 24px 40px;
+      border-bottom: 1px solid var(--border); animation: fadeDown 0.5s ease both;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 32px; height: 32px; border: 1px solid var(--gold-dim);
+      border-radius: 2px; display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-mark span { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--gold); line-height: 1; }
+    .nav-logo-text { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--gold); transition: width 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { width: 100%; }
+    main {
+      position: relative; z-index: 1; flex: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .coming-soon { text-align: center; padding: 80px 32px; animation: fadeUp 0.6s ease both; }
+    .cs-icon {
+      width: 64px; height: 64px; margin: 0 auto 40px;
+      border: 1px solid var(--gold-dim); border-radius: 2px;
+      display: flex; align-items: center; justify-content: center; position: relative;
+    }
+    .cs-icon::before { content: ''; position: absolute; inset: 4px; border: 1px solid var(--border); }
+    .cs-icon span { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--gold); }
+    .cs-label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; color: var(--text); line-height: 1.1; margin-bottom: 24px; }
+    .divider { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); margin: 0 auto 24px; }
+    .cs-text { font-size: 15px; color: var(--muted); max-width: 400px; margin: 0 auto 40px; }
+    .email-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--gold); text-decoration: none;
+      border-bottom: 1px solid var(--gold-dim); padding-bottom: 2px;
+      margin-bottom: 40px; transition: color 0.2s, border-color 0.2s;
+    }
+    .email-link:hover { color: var(--accent); border-color: var(--accent); }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+      border: 1px solid var(--border); padding: 12px 24px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-link:hover { color: var(--gold); border-color: var(--gold-dim); }
+    .back-link::before { content: '←'; color: var(--gold-dim); transition: color 0.2s; }
+    .back-link:hover::before { color: var(--gold); }
+    .links-row { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    footer {
+      position: relative; z-index: 1; padding: 24px 40px;
+      border-top: 1px solid var(--border); text-align: center;
+      font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) {
+      nav { padding: 20px; }
+      .nav-logo-text { display: none; }
+      .nav-links { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark"><span>W</span></div>
+      <span class="nav-logo-text">Woodhead Games</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="coming-soon">
+      <div class="cs-icon"><span>C</span></div>
+      <p class="cs-label">Contact</p>
+      <h1>Coming Soon</h1>
+      <div class="divider"></div>
+      <p class="cs-text">A proper contact form is on the way. In the meantime, reach out directly.</p>
+      <div class="links-row">
+        <a href="mailto:woodheadgamestudio@gmail.com" class="email-link">woodheadgamestudio@gmail.com</a>
+        <a href="index.html" class="back-link">Back to Home</a>
+      </div>
+    </div>
+  </main>
+  <footer>© 2016 Woodhead Games Studio Pty Ltd</footer>
+</body>
+</html>

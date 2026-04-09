@@ -27,8 +27,7 @@
       line-height: 1.75;
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
     }
 
     body::before {
@@ -41,9 +40,95 @@
       opacity: 0.4;
     }
 
-    .page {
+    /* NAV */
+    nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeDown 0.5s ease both;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--gold-dim);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo-mark span {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .nav-logo-text {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { width: 100%; }
+
+    /* MAIN */
+    main {
       position: relative;
       z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
       max-width: 680px;
       width: 100%;
       margin: 0 auto;
@@ -192,11 +277,14 @@
     }
 
     .footer {
-      margin-top: 64px;
+      position: relative;
+      z-index: 1;
+      padding: 24px 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
       font-size: 12px;
       color: var(--muted);
       letter-spacing: 0.04em;
-      animation: fadeUp 0.5s 0.4s ease both;
     }
 
     @keyframes fadeUp {
@@ -204,7 +292,15 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 480px) {
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 20px 20px; }
+      .nav-logo-text { display: none; }
+      .nav-links { gap: 20px; }
       .page { padding: 60px 20px 80px; }
       .info-card { padding: 24px 20px; }
       .info-row { flex-direction: column; gap: 4px; }
@@ -213,38 +309,55 @@
   </style>
 </head>
 <body>
-  <div class="page">
 
-    <div class="logo-mark"><span>W</span></div>
-
-    <h1>Woodhead Games Studio</h1>
-    <p class="tagline">Independent Game Developer</p>
-
-    <div class="divider"></div>
-
-    <div class="info-card">
-      <div class="info-row">
-        <span class="info-label">Status</span>
-        <span class="info-value">Registered South African Company</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Reg. Number</span>
-        <span class="info-value">2016/509041/07</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Contact</span>
-        <span class="info-value"><a href="mailto:woodheadgamestudio@gmail.com">woodheadgamestudio@gmail.com</a></span>
-      </div>
-    </div>
-
-    <p class="section-label">Privacy Policies</p>
-    <ul class="policy-list">
-      <li><a href="Auto_Empire_Idle_Dealer_privcy-policy.html">Auto Empire: Idle Dealer</a></li>
-      <li><a href="Idle_Courier_Manager_RPG_privcy-policy.html">Idle Courier Manager RPG</a></li>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark"><span>W</span></div>
+      <span class="nav-logo-text">Woodhead Games</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
+  </nav>
 
-    <div class="footer">© 2016 Woodhead Games Studio Pty Ltd</div>
+  <main>
+    <div class="page">
 
-  </div>
+      <div class="logo-mark"><span>W</span></div>
+
+      <h1>Woodhead Games Studio</h1>
+      <p class="tagline">Independent Game Developer</p>
+
+      <div class="divider"></div>
+
+      <div class="info-card">
+        <div class="info-row">
+          <span class="info-label">Status</span>
+          <span class="info-value">Registered South African Company</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Reg. Number</span>
+          <span class="info-value">2016/509041/07</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Contact</span>
+          <span class="info-value"><a href="mailto:woodheadgamestudio@gmail.com">woodheadgamestudio@gmail.com</a></span>
+        </div>
+      </div>
+
+      <p class="section-label">Privacy Policies</p>
+      <ul class="policy-list">
+        <li><a href="Auto_Empire_Idle_Dealer_privcy-policy.html">Auto Empire: Idle Dealer</a></li>
+        <li><a href="Idle_Courier_Manager_RPG_privcy-policy.html">Idle Courier Manager RPG</a></li>
+      </ul>
+
+    </div>
+  </main>
+
+  <footer class="footer">© 2016 Woodhead Games Studio Pty Ltd</footer>
+
 </body>
 </html>
