@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "games": [
+    {
+      "id": "auto-empire-2",
+      "title": "Auto Empire 2: Car Dealer",
+      "thumbnail": "auto-empire-2.png",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.woodheadgames.autoempire2"
+    },
+    {
+      "id": "circle-crusade",
+      "title": "Circle Crusade: Idle Defense",
+      "thumbnail": "circle-crusade.png",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.woodheadgames.circleCrusade"
+    },
+    {
+      "id": "idle-car-flipper",
+      "title": "Idle Car Flipper: Buy & Sell",
+      "thumbnail": "idle-car-flipper.png",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.autoempire.idledealer"
+    },
+    {
+      "id": "idle-courier-manager-rpg",
+      "title": "Idle Courier Manager RPG",
+      "thumbnail": "idle-courier-manager-rpg.png",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.woodheadgames.idleFleetManagerRPG"
+    }
+  ]
+}
