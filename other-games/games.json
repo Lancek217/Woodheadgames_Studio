@@ -29,6 +29,12 @@
       "id": "rolling-home",
       "title": "Rolling Home: RV Survival",
       "storeUrl": "https://play.google.com/store/apps/details?id=com.woodheadgames.roadtripsurvival"
+    },
+    {
+      "id": "simple-farming-io",
+      "title": "Simple Farming: Cozy Farm Life",
+      "thumbnail": "simple-farming-io.png",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.woodheadgames.simplefarmingio"
     }
   ]
 }
